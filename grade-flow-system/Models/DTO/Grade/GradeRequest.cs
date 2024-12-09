@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace grade_flow_system.Models.DTO;
+namespace grade_flow_system.Models.DTO.Grade;
 
 public class GradeRequest
 {

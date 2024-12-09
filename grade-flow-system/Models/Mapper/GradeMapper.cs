@@ -1,4 +1,4 @@
-﻿using grade_flow_system.Models.DTO;
+﻿using grade_flow_system.Models.DTO.Grade;
 using grade_flow_system.Models.Entity;
 
 namespace grade_flow_system.Models.Mapper;
