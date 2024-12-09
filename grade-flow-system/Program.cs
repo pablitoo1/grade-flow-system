@@ -1,8 +1,13 @@
+using grade_flow_system.Configuration;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 402));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection") ?? "", serverVersion));
 
 var app = builder.Build();
 

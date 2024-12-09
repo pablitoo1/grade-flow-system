@@ -4,7 +4,7 @@ namespace grade_flow_system.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class DupaController : ControllerBase
+public class GradeController : ControllerBase
 {
     [HttpGet]
     public string GetSth()
