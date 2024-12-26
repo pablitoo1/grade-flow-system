@@ -4,12 +4,6 @@
         <name>grade-flow-system</name>
     </assembly>
     <members>
-        <member name="T:grade_flow_system.Controllers.GradeController">
-            <summary>Grades</summary>
-        </member>
-        <member name="M:grade_flow_system.Controllers.GradeController.#ctor(grade_flow_system.Services.GradeService)">
-            <summary>Grades</summary>
-        </member>
         <member name="M:grade_flow_system.Controllers.GradeController.GetAll">
             <summary>Get all grades</summary>
         </member>
