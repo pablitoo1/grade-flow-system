@@ -8,7 +8,7 @@ public class TeacherMapper
 {
     public static TeacherResponse Map(Teacher teacher)
     {
-        return new TeacherResponse { Id = teacher.Id, FirstName = teacher.FirstName, LastName = teacher.LastName, Email = teacher.Email, Subjects = SubjectMapper.Map(teacher.Subjects)};
+        return new TeacherResponse { Id = teacher.Id, FirstName = teacher.FirstName, LastName = teacher.LastName, Email = teacher.Email, Subjects = teacher.Subjects.Select(SubjectMapper.Map).ToList()};
     }
 
     public static Teacher Map(TeacherRequest teacherRequest)

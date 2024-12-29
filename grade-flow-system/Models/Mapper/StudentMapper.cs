@@ -8,7 +8,7 @@ public class StudentMapper
 {
     public static StudentResponse Map(Student student)
     {
-        return new StudentResponse { Id = student.Id, FirstName = student.FirstName, LastName = student.LastName, Email = student.Email, Grades = GradeMapper.Map(student.Grades) };
+        return new StudentResponse { Id = student.Id, FirstName = student.FirstName, LastName = student.LastName, Email = student.Email, Grades = student.Grades.Select(GradeMapper.Map).ToList() };
     }
 
     public static Student Map(StudentRequest studentRequest)

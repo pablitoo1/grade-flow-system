@@ -8,12 +8,7 @@ public class SubjectMapper
 {
     public static SubjectResponse Map(Subject subject)
     {
-        return new SubjectResponse { Id = subject.Id, Name = subject.Name, Description = subject.Description, Grades = GradeMapper.Map(subject.Grades) };
-    }
-
-    public static ICollection<SubjectResponse> Map(ICollection<Subject> subject)
-    {
-        return subject.Select(Map).ToList();
+        return new SubjectResponse { Id = subject.Id, Name = subject.Name, Description = subject.Description, Grades = subject.Grades.Select(GradeMapper.Map).ToList() };
     }
 
     public static Subject Map(SubjectRequest subjectRequest)

@@ -10,11 +10,6 @@ public class GradeMapper
         return new GradeResponse { Id = grade.Id, GradeType = GradeTypeMapper.Map(grade.GradeType), DateAssigned = grade.DateAssigned, Comments = grade.Comments, Student = StudentMapper.Map(grade.Student), Subject = SubjectMapper.Map(grade.Subject)};
     }
 
-    public static ICollection<GradeResponse> Map(ICollection<Grade> grades)
-    {
-        return grades.Select(Map).ToList();
-    }
-
     public static Grade Map(GradeRequest gradeRequest)
     {
         return new Grade { GradeTypeId = gradeRequest.GradeTypeId, DateAssigned = gradeRequest.DateAssigned, Comments = gradeRequest.Comments, StudentId = gradeRequest.StudentId, SubjectId = gradeRequest.SubjectId };
