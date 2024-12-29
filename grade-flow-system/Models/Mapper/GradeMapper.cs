@@ -7,7 +7,7 @@ public class GradeMapper
 {
     public static GradeResponse Map(Grade grade)
     {
-        return new GradeResponse { Id = grade.Id, GradeType = GradeTypeMapper.Map(grade.GradeType), DateAssigned = grade.DateAssigned, Comments = grade.Comments, Student = StudentMapper.Map(grade.Student), Subject = grade.Subject};
+        return new GradeResponse { Id = grade.Id, GradeType = GradeTypeMapper.Map(grade.GradeType), DateAssigned = grade.DateAssigned, Comments = grade.Comments, Student = StudentMapper.Map(grade.Student), Subject = SubjectMapper.Map(grade.Subject)};
     }
 
     public static ICollection<GradeResponse> Map(ICollection<Grade> grades)
