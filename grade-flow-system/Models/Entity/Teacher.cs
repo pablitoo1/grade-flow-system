@@ -8,5 +8,5 @@ public class Teacher
     [Required][MaxLength(100)] public required string FirstName { get; set; }
     [Required][MaxLength(100)] public required string LastName { get; set; }
     [MaxLength(100)] public string? Email { get; set; }
-    public ICollection<Subject>? Subjects { get; set; }
+    public ICollection<Subject> Subjects { get; set; }
 }
