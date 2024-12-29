@@ -7,11 +7,16 @@ public class GradeMapper
 {
     public static GradeResponse Map(Grade grade)
     {
-        return new GradeResponse { id = grade.Id, gradeType = GradeTypeMapper.Map(grade.GradeType), dateAssigned = grade.DateAssigned, comments = grade.Comments, student = grade.Student, subject = grade.Subject};
+        return new GradeResponse { Id = grade.Id, GradeType = GradeTypeMapper.Map(grade.GradeType), DateAssigned = grade.DateAssigned, Comments = grade.Comments, Student = StudentMapper.Map(grade.Student), Subject = grade.Subject};
+    }
+
+    public static ICollection<GradeResponse> Map(ICollection<Grade> grades)
+    {
+        return grades.Select(Map).ToList();
     }
 
     public static Grade Map(GradeRequest gradeRequest)
     {
-        return new Grade { GradeTypeId = gradeRequest.gradeTypeId, DateAssigned = gradeRequest.dateAssigned, Comments = gradeRequest.comments, StudentId = gradeRequest.subjectId, SubjectId = gradeRequest.subjectId };
+        return new Grade { GradeTypeId = gradeRequest.GradeTypeId, DateAssigned = gradeRequest.DateAssigned, Comments = gradeRequest.Comments, StudentId = gradeRequest.StudentId, SubjectId = gradeRequest.SubjectId };
     }
 }

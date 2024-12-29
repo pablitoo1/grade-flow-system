@@ -2,6 +2,6 @@
 
 public class GradeTypeRequest
 {
-    public double value { get; set; }
-    public string? description { get; set; }
+    public double Value { get; set; }
+    public string? Description { get; set; }
 }

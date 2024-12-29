@@ -2,7 +2,7 @@
 
 public class GradeTypeResponse
 {
-    public int id { get; set; }
-    public double value { get; set; }
-    public string? description { get; set; }
+    public int Id { get; set; }
+    public double Value { get; set; }
+    public string? Description { get; set; }
 }

@@ -7,11 +7,11 @@ public class GradeTypeMapper
 {
     public static GradeTypeResponse Map(GradeType gradeType)
     {
-        return new GradeTypeResponse { id = gradeType.Id, value = gradeType.Value, description = gradeType.Description };
+        return new GradeTypeResponse { Id = gradeType.Id, Value = gradeType.Value, Description = gradeType.Description };
     }
 
     public static GradeType Map(GradeTypeRequest gradeTypeRequest)
     {
-        return new GradeType { Value = gradeTypeRequest.value, Description = gradeTypeRequest.description };
+        return new GradeType { Value = gradeTypeRequest.Value, Description = gradeTypeRequest.Description };
     }
 }
