@@ -12,12 +12,12 @@ public class GradeService(DatabaseContext databaseContext)
         return databaseContext.Grades.Select(g => GradeMapper.Map(g)).ToList();
     }
 
-    public void add(GradeRequest gradeRequest)
-    {
-        if (databaseContext.Grades.Any(g => g.value == gradeRequest.value)) {
-            throw new BadRequestException("Grade already exist");
-        }
-        databaseContext.Grades.Add(GradeMapper.Map(gradeRequest));
-        databaseContext.SaveChanges();
-    }
+    //public void add(GradeRequest gradeRequest)
+    //{
+    //    if (databaseContext.Grades.Any(g => g.value == gradeRequest.value)) {
+    //        throw new BadRequestException("Grade already exist");
+    //    }
+    //    databaseContext.Grades.Add(GradeMapper.Map(gradeRequest));
+    //    databaseContext.SaveChanges();
+    //}
 }

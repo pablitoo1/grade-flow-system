@@ -20,7 +20,7 @@ public class GradeController(GradeService gradeService) : ControllerBase
     [HttpPost]
     public void add([FromBody]GradeRequest gradeRequest)    //FromQuery bierze z parametrów
     {
-        gradeService.add(gradeRequest);
+        //gradeService.add(gradeRequest);
     } 
 }
 
