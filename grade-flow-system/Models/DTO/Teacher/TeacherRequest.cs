@@ -1,6 +1,4 @@
-﻿using grade_flow_system.Models.DTO.Subject;
-
-namespace grade_flow_system.Models.DTO.Teacher;
+﻿namespace grade_flow_system.Models.DTO.Teacher;
 
 public class TeacherRequest
 {

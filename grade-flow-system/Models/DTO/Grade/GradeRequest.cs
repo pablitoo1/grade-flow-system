@@ -1,6 +1,4 @@
-﻿using grade_flow_system.Models.Entity;
-
-namespace grade_flow_system.Models.DTO.Grade;
+﻿namespace grade_flow_system.Models.DTO.Grade;
 
 public class GradeRequest
 {

@@ -1,7 +1,6 @@
 ﻿using grade_flow_system.Models.DTO.GradeType;
 using grade_flow_system.Models.DTO.Student;
 using grade_flow_system.Models.DTO.Subject;
-using grade_flow_system.Models.Entity;
 
 namespace grade_flow_system.Models.DTO.Grade;
 
