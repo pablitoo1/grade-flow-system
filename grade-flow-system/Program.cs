@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen(s =>
     s.IncludeXmlComments(filePath);
 });
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection") ?? "", serverVersion));
-builder.Services.AddScoped<GradeService>();
+builder.Services.AddScoped<GradeTypeService>();
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();

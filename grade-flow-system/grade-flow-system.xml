@@ -4,12 +4,24 @@
         <name>grade-flow-system</name>
     </assembly>
     <members>
-        <member name="M:grade_flow_system.Controllers.GradeController.GetAll">
-            <summary>Get all grades</summary>
+        <member name="M:grade_flow_system.Controllers.GradeTypeController.GetAll">
+            <summary>Get all grade types</summary>
         </member>
-        <member name="M:grade_flow_system.Controllers.GradeController.add(grade_flow_system.Models.DTO.Grade.GradeRequest)">
-            <summary>Add new grade</summary>
-            <response code ="400">Grade already exists</response>
+        <member name="M:grade_flow_system.Controllers.GradeTypeController.add(grade_flow_system.Models.DTO.GradeType.GradeTypeRequest)">
+            <summary>Add new grade type</summary>
+            <response code ="400">Grade type already exists</response>
+        </member>
+        <member name="T:grade_flow_system.Migrations.Base">
+            <inheritdoc />
+        </member>
+        <member name="M:grade_flow_system.Migrations.Base.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:grade_flow_system.Migrations.Base.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:grade_flow_system.Migrations.Base.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
         </member>
     </members>
 </doc>
