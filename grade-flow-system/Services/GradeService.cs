@@ -7,10 +7,10 @@ namespace grade_flow_system.Services;
 
 public class GradeService(DatabaseContext databaseContext)
 {
-    public List<GradeResponse> getAll()
-    {
-        return databaseContext.Grades.Select(g => GradeMapper.Map(g)).ToList();
-    }
+    //public List<GradeResponse> getAll()
+    //{
+    //    return databaseContext.Grades.Select(g => GradeMapper.Map(g)).ToList();
+    //}
 
     //public void add(GradeRequest gradeRequest)
     //{
