@@ -9,7 +9,16 @@
         </member>
         <member name="M:grade_flow_system.Controllers.GradeTypeController.add(grade_flow_system.Models.DTO.GradeType.GradeTypeRequest)">
             <summary>Add new grade type</summary>
-            <response code ="400">Grade type already exists</response>
+            <response code ="400">Grade type value already exists</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.GradeTypeController.edit(grade_flow_system.Models.DTO.GradeType.GradeTypeRequest,System.Int32)">
+            <summary>Edit existing grade type</summary>
+            <response code="400">Grade type value already exits</response>
+            <response code="404">Grade type not found</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.GradeTypeController.delete(System.Int32)">
+            <summary>Delete existing grade type</summary>
+            <response code="404">Grade type not found</response>
         </member>
         <member name="T:grade_flow_system.Migrations.Base">
             <inheritdoc />
