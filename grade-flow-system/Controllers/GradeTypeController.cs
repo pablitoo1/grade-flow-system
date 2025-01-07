@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace grade_flow_system.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class GradeTypeController(GradeTypeService gradeTypeService) : ControllerBase
 {
     /// <summary>Get all grade types</summary>
-    [HttpGet]
+    [HttpGet("all")]
     public List<GradeTypeResponse> GetAll()
     {
         return gradeTypeService.getAll();
@@ -27,16 +27,16 @@ public class GradeTypeController(GradeTypeService gradeTypeService) : Controller
     /// <summary>Edit existing grade type</summary>
     /// <response code="400">Grade type value already exits</response>
     /// <response code="404">Grade type not found</response>
-    [HttpPatch]
-    public void edit([FromBody] GradeTypeRequest gradeTypeRequest, [FromQuery][Required] int id)
+    [HttpPatch("{id:int}")]
+    public void edit([FromBody] GradeTypeRequest gradeTypeRequest, int id)
     {
         gradeTypeService.edit(gradeTypeRequest, id);
     }
 
     /// <summary>Delete existing grade type</summary>
     /// <response code="404">Grade type not found</response>
-    [HttpDelete]
-    public void delete([FromQuery][Required] int id)
+    [HttpDelete("{id:int}")]
+    public void delete(int id)
     {
         gradeTypeService.delete(id);
     }
