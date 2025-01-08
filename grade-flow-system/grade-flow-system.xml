@@ -4,6 +4,9 @@
         <name>grade-flow-system</name>
     </assembly>
     <members>
+        <member name="M:grade_flow_system.Controllers.GradeController.GetAll">
+            <summary>Get all grades</summary>
+        </member>
         <member name="M:grade_flow_system.Controllers.GradeTypeController.GetAll">
             <summary>Get all grade types</summary>
         </member>

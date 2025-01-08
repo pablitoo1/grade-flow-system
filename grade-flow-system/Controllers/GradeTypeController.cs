@@ -27,18 +27,18 @@ public class GradeTypeController(GradeTypeService gradeTypeService) : Controller
     /// <summary>Edit existing grade type</summary>
     /// <response code="400">Grade type value already exits</response>
     /// <response code="404">Grade type not found</response>
-    [HttpPatch("{id:int}")]
-    public void edit([FromBody] GradeTypeRequest gradeTypeRequest, int id)
+    [HttpPatch("{gradeTypeId:int}")]
+    public void edit([FromBody] GradeTypeRequest gradeTypeRequest, int gradeTypeId)
     {
-        gradeTypeService.edit(gradeTypeRequest, id);
+        gradeTypeService.edit(gradeTypeRequest, gradeTypeId);
     }
 
     /// <summary>Delete existing grade type</summary>
     /// <response code="404">Grade type not found</response>
-    [HttpDelete("{id:int}")]
-    public void delete(int id)
+    [HttpDelete("{gradeTypeId:int}")]
+    public void delete(int gradeTypeId)
     {
-        gradeTypeService.delete(id);
+        gradeTypeService.delete(gradeTypeId);
     }
 }
 

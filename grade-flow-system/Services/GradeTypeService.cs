@@ -22,9 +22,9 @@ public class GradeTypeService(DatabaseContext databaseContext)
         databaseContext.SaveChanges();
     }
 
-    public void edit(GradeTypeRequest gradeTypeRequest, int id)
+    public void edit(GradeTypeRequest gradeTypeRequest, int gradeTypeId)
     {
-        var gradeType = databaseContext.GradeTypes.SingleOrDefault(g => g.Id == id) ?? throw new NotFoundException("Grade type not found");
+        var gradeType = databaseContext.GradeTypes.SingleOrDefault(g => g.Id == gradeTypeId) ?? throw new NotFoundException("Grade type not found");
 
         if (databaseContext.GradeTypes.Any(g => g.Value == gradeTypeRequest.Value))
         {
@@ -38,9 +38,9 @@ public class GradeTypeService(DatabaseContext databaseContext)
         databaseContext.SaveChanges();
     }
 
-    public void delete(int id) 
+    public void delete(int gradeTypeId) 
     {
-        var gradeType = databaseContext.GradeTypes.SingleOrDefault(g => g.Id == id) ?? throw new NotFoundException("Grade type not found");
+        var gradeType = databaseContext.GradeTypes.SingleOrDefault(g => g.Id == gradeTypeId) ?? throw new NotFoundException("Grade type not found");
 
         databaseContext.GradeTypes.Remove(gradeType);
         databaseContext.SaveChanges();

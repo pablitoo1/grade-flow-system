@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen(s =>
 });
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection") ?? "", serverVersion));
 builder.Services.AddScoped<GradeTypeService>();
+builder.Services.AddScoped<GradeService>();
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();

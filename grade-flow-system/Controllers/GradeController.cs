@@ -1,26 +1,37 @@
 using grade_flow_system.Models.DTO.Grade;
+using grade_flow_system.Models.DTO.GradeType;
 using grade_flow_system.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace grade_flow_system.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class GradeController(GradeService gradeService) : ControllerBase
 {
-    ///// <summary>Get all grades</summary>
-    //[HttpGet]
-    //public List<GradeResponse> GetAll()
-    //{
-    //    return gradeService.getAll();
-    //}
+    /// <summary>Get all grades</summary>
+    [HttpGet("all")]
+    public List<GradeResponse> GetAll()
+    {
+        return gradeService.getAll();
+    }
 
-    ///// <summary>Add new grade</summary>
-    ///// <response code ="400">Grade already exists</response>
-    //[HttpPost]
-    //public void add([FromBody]GradeRequest gradeRequest)    //FromQuery bierze z parametrów
-    //{
-    //    //gradeService.add(gradeRequest);
-    //} 
+    [HttpPost]
+    public void add([FromBody] GradeRequest gradeRequest)
+    {
+        gradeService.add(gradeRequest);
+    }
+
+    [HttpPatch("{gradeId:int}")]
+    public void edit([FromBody] GradeRequest gradeRequest, int gradeId)
+    {
+        gradeService.edit(gradeRequest, gradeId);
+    }
+
+    [HttpDelete("{gradeId:int}")]
+    public void delete(int gradeId)
+    {
+        gradeService.delete(gradeId);
+    }
 }
 
