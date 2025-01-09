@@ -16,6 +16,7 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseMySql(build
 builder.Services.AddScoped<GradeTypeService>();
 builder.Services.AddScoped<GradeService>();
 builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<SubjectService>();
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
