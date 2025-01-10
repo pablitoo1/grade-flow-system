@@ -7,4 +7,6 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
 {
     public required DbSet<Grade> Grades { get; init; } // init bo ma byc utworzona tylko raz
     public required DbSet<GradeType> GradeTypes { get; init; }
+    public required DbSet<Student> Students { get; init; }
+    public required DbSet<Subject> Subjects { get; init; }
 }

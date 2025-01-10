@@ -19,9 +19,9 @@ public class GradeService(DatabaseContext databaseContext)
         databaseContext.SaveChanges();
     }
 
-    public void edit(GradeRequest gradeRequest, int id)
+    public void edit(GradeRequest gradeRequest, int gradeId)
     {
-        var grade = databaseContext.Grades.SingleOrDefault(g => g.Id == id) ?? throw new NotFoundException("Grade not found");
+        var grade = databaseContext.Grades.SingleOrDefault(g => g.Id == gradeId) ?? throw new NotFoundException("Grade not found");
 
         grade = GradeMapper.Map(gradeRequest);
 
@@ -29,9 +29,9 @@ public class GradeService(DatabaseContext databaseContext)
         databaseContext.SaveChanges();
     }
 
-    public void delete(int id)
+    public void delete(int gradeId)
     {
-        var grade = databaseContext.Grades.SingleOrDefault(g => g.Id == id) ?? throw new NotFoundException("Grade not found");
+        var grade = databaseContext.Grades.SingleOrDefault(g => g.Id == gradeId) ?? throw new NotFoundException("Grade not found");
 
         databaseContext.Grades.Remove(grade);
         databaseContext.SaveChanges();

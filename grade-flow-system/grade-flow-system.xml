@@ -35,5 +35,17 @@
         <member name="M:grade_flow_system.Migrations.Base.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:grade_flow_system.Migrations.Grades">
+            <inheritdoc />
+        </member>
+        <member name="M:grade_flow_system.Migrations.Grades.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:grade_flow_system.Migrations.Grades.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:grade_flow_system.Migrations.Grades.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

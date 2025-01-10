@@ -31,8 +31,7 @@ public class GradeTypeService(DatabaseContext databaseContext)
             throw new BadRequestException("Grade type value already exist");
         }
 
-        gradeType.Description = gradeTypeRequest.Description;
-        gradeType.Value = gradeTypeRequest.Value;
+        gradeType = GradeTypeMapper.Map(gradeTypeRequest);
 
         databaseContext.GradeTypes.Update(gradeType);
         databaseContext.SaveChanges();
