@@ -31,6 +31,7 @@ public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<Exception
             NotFoundException e => new ExceptionResponse(HttpStatusCode.NotFound, e.Message),
             UnauthorizedException e => new ExceptionResponse(HttpStatusCode.Unauthorized, e.Message),
             ForbiddenException e => new ExceptionResponse(HttpStatusCode.Forbidden, e.Message),
+            ConflictException e => new ExceptionResponse(HttpStatusCode.Conflict, e.Message),
             _ => new ExceptionResponse(HttpStatusCode.InternalServerError, "Internal server error. Please retry later.")
         };
 

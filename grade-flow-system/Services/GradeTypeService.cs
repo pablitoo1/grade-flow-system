@@ -1,7 +1,9 @@
-﻿using grade_flow_system.Configuration;
+﻿using System.ComponentModel.DataAnnotations;
+using grade_flow_system.Configuration;
 using grade_flow_system.Models.DTO.GradeType;
 using grade_flow_system.Models.Mapper;
 using HttpExceptions.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace grade_flow_system.Services;
 
@@ -18,8 +20,16 @@ public class GradeTypeService(DatabaseContext databaseContext)
         {
             throw new BadRequestException("Grade type value already exist");
         }
-        databaseContext.GradeTypes.Add(GradeTypeMapper.Map(gradeTypeRequest));
-        databaseContext.SaveChanges();
+
+        try
+        {
+            databaseContext.GradeTypes.Add(GradeTypeMapper.Map(gradeTypeRequest));
+            databaseContext.SaveChanges();
+        }
+        catch (ValidationException ex)
+        {
+            throw new BadRequestException("Invalid grade type data: " + ex.Message);
+        }
     }
 
     public void edit(GradeTypeRequest gradeTypeRequest, int gradeTypeId)
@@ -33,15 +43,29 @@ public class GradeTypeService(DatabaseContext databaseContext)
 
         gradeType = GradeTypeMapper.Map(gradeTypeRequest);
 
-        databaseContext.GradeTypes.Update(gradeType);
-        databaseContext.SaveChanges();
+        try
+        {
+            databaseContext.GradeTypes.Update(gradeType);
+            databaseContext.SaveChanges();
+        }
+        catch (ValidationException ex)
+        {
+            throw new BadRequestException("Invalid grade type data: " + ex.Message);
+        }
     }
 
     public void delete(int gradeTypeId) 
     {
         var gradeType = databaseContext.GradeTypes.SingleOrDefault(g => g.Id == gradeTypeId) ?? throw new NotFoundException("Grade type not found");
 
-        databaseContext.GradeTypes.Remove(gradeType);
-        databaseContext.SaveChanges();
+        try
+        {
+            databaseContext.GradeTypes.Remove(gradeType);
+            databaseContext.SaveChanges();
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new ConflictException("Grade type is referenced by other data: " + ex.Message);
+        }
     }
 }

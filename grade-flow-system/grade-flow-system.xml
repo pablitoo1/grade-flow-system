@@ -7,21 +7,104 @@
         <member name="M:grade_flow_system.Controllers.GradeController.GetAll">
             <summary>Get all grades</summary>
         </member>
+        <member name="M:grade_flow_system.Controllers.GradeController.add(grade_flow_system.Models.DTO.Grade.GradeRequest)">
+            <summary>Add new grade</summary>
+            <response code ="400">Invalid grade data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.GradeController.edit(grade_flow_system.Models.DTO.Grade.GradeRequest,System.Int32)">
+            <summary>Edit existing grade</summary>
+            <response code="400">Invalid grade data</response>
+            <response code="404">Grade not found</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.GradeController.delete(System.Int32)">
+            <summary>Delete existing grade</summary>
+            <response code="404">Grade not found</response>
+            <response code="409">Grade is referenced by other data</response>
+        </member>
         <member name="M:grade_flow_system.Controllers.GradeTypeController.GetAll">
             <summary>Get all grade types</summary>
         </member>
         <member name="M:grade_flow_system.Controllers.GradeTypeController.add(grade_flow_system.Models.DTO.GradeType.GradeTypeRequest)">
             <summary>Add new grade type</summary>
-            <response code ="400">Grade type value already exists</response>
+            <response code="400">Grade type value already exists or invalid grade type data</response>
         </member>
         <member name="M:grade_flow_system.Controllers.GradeTypeController.edit(grade_flow_system.Models.DTO.GradeType.GradeTypeRequest,System.Int32)">
             <summary>Edit existing grade type</summary>
-            <response code="400">Grade type value already exits</response>
+            <response code="400">Grade type value already exists or invalid grade type data</response>
             <response code="404">Grade type not found</response>
         </member>
         <member name="M:grade_flow_system.Controllers.GradeTypeController.delete(System.Int32)">
             <summary>Delete existing grade type</summary>
             <response code="404">Grade type not found</response>
+            <response code="409">Grade type is referenced by other data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentController.GetAll">
+            <summary>Get all students</summary>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentController.add(grade_flow_system.Models.DTO.Student.StudentRequest)">
+            <summary>Add new student</summary>
+            <response code ="400">Invalid student data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentController.edit(grade_flow_system.Models.DTO.Student.StudentRequest,System.Int32)">
+            <summary>Edit existing student</summary>
+            <response code="400">Invalid student data</response>
+            <response code="404">Student not found</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentController.delete(System.Int32)">
+            <summary>Delete existing student</summary>
+            <response code="404">Student not found</response>
+            <response code="409">Student is referenced by other data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentsGroupController.GetAll">
+            <summary>Get all students groups</summary>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentsGroupController.add(grade_flow_system.Models.DTO.StudentsGroup.StudentsGroupRequest)">
+            <summary>Add new students group</summary>
+            <response code="400">Students group already exists or invalid students group data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentsGroupController.edit(grade_flow_system.Models.DTO.StudentsGroup.StudentsGroupRequest,System.Int32)">
+            <summary>Edit existing students group</summary>
+            <response code="400">Students group already exists or invalid students group data</response>
+            <response code="404">Students group not found</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.StudentsGroupController.delete(System.Int32)">
+            <summary>Delete existing students group</summary>
+            <response code="404">Students group not found</response>
+            <response code="409">Students group is referenced by other data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.SubjectController.GetAll">
+            <summary>Get all subjects</summary>
+        </member>
+        <member name="M:grade_flow_system.Controllers.SubjectController.add(grade_flow_system.Models.DTO.Subject.SubjectRequest)">
+            <summary>Add new subject</summary>
+            <response code="400">Subject already exists or invalid subject data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.SubjectController.edit(grade_flow_system.Models.DTO.Subject.SubjectRequest,System.Int32)">
+            <summary>Edit existing subject</summary>
+            <response code="400">Subject already exists or invalid subject data</response>
+            <response code="404">Subject not found</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.SubjectController.delete(System.Int32)">
+            <summary>Delete existing subject</summary>
+            <response code="404">Subject not found</response>
+            <response code="409">Subject is referenced by other data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.TeacherController.GetAll">
+            <summary>Get all teachers</summary>
+        </member>
+        <member name="M:grade_flow_system.Controllers.TeacherController.add(grade_flow_system.Models.DTO.Teacher.TeacherRequest)">
+            <summary>Add new teacher</summary>
+            <response code="400">Teacher already exists or invalid teacher data</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.TeacherController.edit(grade_flow_system.Models.DTO.Teacher.TeacherRequest,System.Int32)">
+            <summary>Edit existing teacher</summary>
+            <response code="400">Teacher already exists or invalid teacher data</response>
+            <response code="404">Teacher not found</response>
+        </member>
+        <member name="M:grade_flow_system.Controllers.TeacherController.delete(System.Int32)">
+            <summary>Delete existing teacher</summary>
+            <response code="404">Teacher not found</response>
+            <response code="409">Teacher is referenced by other data</response>
         </member>
         <member name="T:grade_flow_system.Migrations.Base">
             <inheritdoc />

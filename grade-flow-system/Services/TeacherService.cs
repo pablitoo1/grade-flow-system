@@ -1,8 +1,10 @@
-﻿using grade_flow_system.Configuration;
+﻿using System.ComponentModel.DataAnnotations;
+using grade_flow_system.Configuration;
 using grade_flow_system.Models.DTO.Subject;
 using grade_flow_system.Models.DTO.Teacher;
 using grade_flow_system.Models.Mapper;
 using HttpExceptions.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace grade_flow_system.Services;
 
@@ -19,25 +21,52 @@ public class TeacherService(DatabaseContext databaseContext)
         {
             throw new BadRequestException("Teacher already exist");
         }
-        databaseContext.Teachers.Add(TeacherMapper.Map(teacherRequest));
-        databaseContext.SaveChanges();
+
+        try
+        {
+            databaseContext.Teachers.Add(TeacherMapper.Map(teacherRequest));
+            databaseContext.SaveChanges();
+        }
+        catch (ValidationException ex)
+        {
+            throw new BadRequestException("Invalid teacher data: " + ex.Message);
+        }
     }
 
     public void edit(TeacherRequest teacherRequest, int teacherId)
     {
         var teacher = databaseContext.Teachers.SingleOrDefault(t => t.Id == teacherId) ?? throw new NotFoundException("Teacher not found");
 
+        if (databaseContext.Teachers.Any(t => t.FirstName == teacherRequest.FirstName && t.LastName == teacherRequest.LastName))
+        {
+            throw new BadRequestException("Teacher already exist");
+        }
+
         teacher = TeacherMapper.Map(teacherRequest);
 
-        databaseContext.Teachers.Update(teacher);
-        databaseContext.SaveChanges();
+        try
+        {
+            databaseContext.Teachers.Update(teacher);
+            databaseContext.SaveChanges();
+        }
+        catch (ValidationException ex)
+        {
+            throw new BadRequestException("Invalid teacher data: " + ex.Message);
+        }
     }
 
     public void delete(int teacherId)
     {
         var teacher = databaseContext.Teachers.SingleOrDefault(t => t.Id == teacherId) ?? throw new NotFoundException("Teacher not found");
 
-        databaseContext.Teachers.Remove(teacher);
-        databaseContext.SaveChanges();
+        try
+        {
+            databaseContext.Teachers.Remove(teacher);
+            databaseContext.SaveChanges();
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new ConflictException("Teacher is referenced by other data: " + ex.Message);
+        }
     }
 }
