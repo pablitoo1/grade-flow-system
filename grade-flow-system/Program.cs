@@ -17,6 +17,8 @@ builder.Services.AddScoped<GradeTypeService>();
 builder.Services.AddScoped<GradeService>();
 builder.Services.AddScoped<StudentService>();
 builder.Services.AddScoped<SubjectService>();
+builder.Services.AddScoped<TeacherService>();
+builder.Services.AddScoped<StudentsGroupService>();
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
