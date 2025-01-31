@@ -9,4 +9,6 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbCont
     public required DbSet<GradeType> GradeTypes { get; init; }
     public required DbSet<Student> Students { get; init; }
     public required DbSet<Subject> Subjects { get; init; }
+    public required DbSet<Teacher> Teachers { get; init; }
+    public required DbSet<StudentsGroup> StudentsGroups { get; init; }
 }
