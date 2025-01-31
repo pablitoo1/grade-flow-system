@@ -16,18 +16,26 @@ public class GradeController(GradeService gradeService) : ControllerBase
         return gradeService.getAll();
     }
 
+    /// <summary>Add new grade</summary>
+    /// <response code ="400">Invalid grade data</response>
     [HttpPost]
     public void add([FromBody] GradeRequest gradeRequest)
     {
         gradeService.add(gradeRequest);
     }
 
+    /// <summary>Edit existing grade</summary>
+    /// <response code="400">Invalid grade data</response>
+    /// <response code="404">Grade not found</response>
     [HttpPatch("{gradeId:int}")]
     public void edit([FromBody] GradeRequest gradeRequest, int gradeId)
     {
         gradeService.edit(gradeRequest, gradeId);
     }
 
+    /// <summary>Delete existing grade</summary>
+    /// <response code="404">Grade not found</response>
+    /// <response code="409">Grade is referenced by other data</response>
     [HttpDelete("{gradeId:int}")]
     public void delete(int gradeId)
     {
