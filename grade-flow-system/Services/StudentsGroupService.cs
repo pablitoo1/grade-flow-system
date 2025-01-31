@@ -37,6 +37,11 @@ public class StudentsGroupService(DatabaseContext databaseContext)
     {
         var studentsGroup = databaseContext.StudentsGroups.SingleOrDefault(s => s.Id == studentsGroupId) ?? throw new NotFoundException("Students group not found");
 
+        if (databaseContext.StudentsGroups.Any(s => s.Name == studentsGroupRequest.Name))
+        {
+            throw new BadRequestException("Students group with that name already exist");
+        }
+
         studentsGroup = StudentsGroupMapper.Map(studentsGroupRequest);
 
         try

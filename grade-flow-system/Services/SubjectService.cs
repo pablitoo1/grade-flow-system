@@ -39,6 +39,11 @@ public class SubjectService(DatabaseContext databaseContext)
     {
         var subject = databaseContext.Subjects.SingleOrDefault(s => s.Id == subjectId) ?? throw new NotFoundException("Subject not found");
 
+        if (databaseContext.Subjects.Any(s => s.Name == subjectRequest.Name))
+        {
+            throw new BadRequestException("Subject with that name already exist");
+        }
+
         subject = SubjectMapper.Map(subjectRequest);
 
         try

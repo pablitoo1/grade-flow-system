@@ -37,6 +37,11 @@ public class TeacherService(DatabaseContext databaseContext)
     {
         var teacher = databaseContext.Teachers.SingleOrDefault(t => t.Id == teacherId) ?? throw new NotFoundException("Teacher not found");
 
+        if (databaseContext.Teachers.Any(t => t.FirstName == teacherRequest.FirstName && t.LastName == teacherRequest.LastName))
+        {
+            throw new BadRequestException("Teacher already exist");
+        }
+
         teacher = TeacherMapper.Map(teacherRequest);
 
         try
